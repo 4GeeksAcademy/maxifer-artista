@@ -1,11 +1,138 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="description" content="Portfolio de arte digital con inspiración en estilo anime y estética contemporánea. Obras gráficas para proyectos visuales y diseño de personajes.">
+    <meta name="language" content="Spanish">
+    <meta name="author" content="Jean Carreras Diseños">
+    <title>Jean Carreras Diseños | Portfolio de Arte Digital</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Jean Carreras Diseños",
+        "jobTitle": "Artista Gráfico / Ilustrador Digital",
+        "description": "Portfolio de arte digital con inspiración en animación japonesa y estética moderna."
+    }
+    </script>
 </head>
 <body>
-    <h2>test</h2>
+    <header class="site-hero" id="inicio">
+        <div class="hero-glow"></div>
+        <div class="hero-copy">
+            <p class="eyebrow">Arte digital inspirado en anime</p>
+            <h1>Diseño visual con energía joven y narrativa gráfica</h1>
+            <p class="hero-text">Portfolio de ilustración digital, diseño de personajes y composiciones visuales para proyectos que buscan un estilo distintivo y contemporáneo.</p>
+            <div class="hero-actions">
+                <a href="#portfolio" class="btn btn-primary">Ver Portfolio</a>
+                <a href="#contacto" class="btn btn-secondary">Contacto rápido</a>
+            </div>
+        </div>
+        <nav class="site-nav">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="sobre" class="section-panel">
+            <div class="section-intro">
+                <h2>Perfil creativo</h2>
+                <p>Portfolio que mezcla influencias japonesas con dirección de arte moderna. Proyectos visuales diseñados para destacar personajes, escenas y composiciones con impacto.</p>
+                <p>Especialización en ilustración digital, diseño de personajes y piezas conceptuales con paletas intensas y estilo definido.</p>
+            </div>
+        </section>
+
+        <section id="portfolio" class="section-panel portfolio-grid">
+            <h2>Portfolio destacado</h2>
+            <article class="portfolio-item">
+                <figure>
+                    <img src="goku.jpg" alt="Ilustración digital estilo anime con personaje en transformación energética">
+                    <figcaption>Goku SSJ 4</figcaption>
+                </figure>
+                <div class="portfolio-copy">
+                    <p>Ilustración digital que resalta volumen, luz y detalle, con una estética anime contemporánea y energía dinámica.</p>
+                </div>
+            </article>
+            <article class="portfolio-item">
+                <figure>
+                    <img src="dark-magician.jpg" alt="Ilustración digital estilo anime con personaje mágico femenino">
+                    <figcaption>Dark Magician Girl</figcaption>
+                </figure>
+                <div class="portfolio-copy">
+                    <p>Composición visual que equilibra elementos místicos y color vibrante para una pieza de estilo anime con presencia femenina.</p>
+                </div>
+            </article>
+        </section>
+
+        <section id="testimonios" class="section-panel testimonial-grid">
+            <h2>Reseñas</h2>
+            <article class="testimonial">
+                <blockquote>
+                    <p>«Un trabajo con estilo claro y visualmente potente, ideal para proyectos que necesitan una voz moderna.»</p>
+                </blockquote>
+                <p class="testimonial-author">- Cliente satisfecho</p>
+            </article>
+            <article class="testimonial">
+                <blockquote>
+                    <p>«Las entregas fueron profesionales y el resultado mostró una gran sensibilidad por la estética anime.»</p>
+                </blockquote>
+                <p class="testimonial-author">- Cliente satisfecho</p>
+            </article>
+            <article class="testimonial">
+                <blockquote>
+                    <p>«Diseños con identidad propia, muy adecuados para campañas digitales y piezas artísticas.»</p>
+                </blockquote>
+                <p class="testimonial-author">- Cliente satisfecho</p>
+            </article>
+        </section>
+
+        <section id="contacto" class="section-panel section-contact">
+            <h2>Contacto</h2>
+            <p>Interés en una pieza personalizada o colaboración visual. Envía los detalles del proyecto y recibirás una respuesta rápida.</p>
+            <form method="POST" action="#contacto">
+                <fieldset>
+                    <legend>Formulario de contacto</legend>
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="tu@correo.com" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="asunto">Asunto</label>
+                        <input type="text" id="asunto" name="asunto" placeholder="Breve descripción del proyecto" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntame tu idea" required aria-required="true"></textarea>
+                    </div>
+                    <button type="submit">Enviar mensaje</button>
+                </fieldset>
+            </form>
+            <div class="social-links">
+                <h3>Redes sociales</h3>
+                <ul>
+                    <li><a href="#" aria-label="Enlace de Instagram de placeholder">Instagram (placeholder)</a></li>
+                    <li><a href="#" aria-label="Enlace de Twitter de placeholder">Twitter (placeholder)</a></li>
+                    <li><a href="#" aria-label="Enlace de LinkedIn de placeholder">LinkedIn (placeholder)</a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Jean Carreras Diseños</p>
+        <p>Montevideo, Uruguay</p>
+    </footer>
 </body>
 </html>
