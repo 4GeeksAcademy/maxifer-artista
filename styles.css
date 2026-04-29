@@ -222,6 +222,18 @@ p {
     gap: 1rem;
 }
 
+.section-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.85rem;
+    margin-top: 1.75rem;
+}
+
+.section-actions-inline {
+    justify-content: flex-start;
+}
+
 .btn {
     display: inline-flex;
     align-items: center;
@@ -244,6 +256,20 @@ p {
     border: 1px solid rgba(80, 209, 255, 0.35);
     color: var(--text);
     background: rgba(255, 255, 255, 0.04);
+}
+
+.btn-ghost {
+    border: 1px solid transparent;
+    color: var(--text-muted);
+    background: transparent;
+    padding-inline: 1.1rem;
+}
+
+.btn-ghost:hover,
+.btn-ghost:focus {
+    color: var(--text);
+    background: rgba(80, 209, 255, 0.08);
+    border-color: rgba(80, 209, 255, 0.16);
 }
 
 .btn:hover {
@@ -556,6 +582,11 @@ main:focus {
 .testimonial-grid > .section-heading {
     grid-column: 1 / -1;
     margin-bottom: 0.25rem;
+}
+
+.portfolio-grid > .section-actions,
+.testimonial-grid > .section-actions {
+    grid-column: 1 / -1;
 }
 
 .portfolio-list {
@@ -885,6 +916,26 @@ button[type="submit"]:hover {
     color: rgba(255, 255, 255, 0.55);
 }
 
+.footer-cta {
+    display: inline-flex;
+    margin-top: 1rem;
+    padding: 0.8rem 1.2rem;
+    border-radius: 999px;
+    border: 1px solid rgba(80, 209, 255, 0.2);
+    background: rgba(80, 209, 255, 0.08);
+    color: var(--text);
+    font-family: var(--font-family-display);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.footer-cta:hover,
+.footer-cta:focus {
+    color: var(--text);
+    background: rgba(80, 209, 255, 0.14);
+    border-color: rgba(80, 209, 255, 0.32);
+}
+
 @media (max-width: 900px) {
     .hero-actions {
         flex-direction: column;
@@ -893,6 +944,15 @@ button[type="submit"]:hover {
 
     .hero-actions {
         gap: 0.85rem;
+    }
+
+    .section-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .section-actions .btn {
+        width: 100%;
     }
 }
 
