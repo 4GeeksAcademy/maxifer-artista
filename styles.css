@@ -1,4 +1,5 @@
 :root {
+    --nav-height: 88px;
     --bg-dark: #050b16;
     --bg-soft: #0a1726;
     --surface: rgba(8, 18, 34, 0.92);
@@ -95,7 +96,7 @@ p {
 .site-hero {
     position: relative;
     overflow: hidden;
-    padding: calc(var(--spacing-xlarge) * 1.2) var(--spacing-large) var(--spacing-large);
+    padding: calc(var(--spacing-xlarge) * 1.2 + var(--nav-height)) var(--spacing-large) var(--spacing-large);
     text-align: center;
     background: linear-gradient(135deg, rgba(10, 21, 40, 0.96), rgba(5, 11, 22, 0.98));
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -186,9 +187,20 @@ p {
 }
 
 .site-nav {
-    margin-top: 2.5rem;
-    position: relative;
-    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: var(--nav-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem var(--spacing-large);
+    z-index: 10;
+    background: rgba(5, 11, 22, 0.88);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(80, 209, 255, 0.12);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
 }
 
 .site-nav ul {
@@ -197,6 +209,56 @@ p {
     flex-wrap: wrap;
     justify-content: center;
     list-style: none;
+}
+
+.nav-toggle {
+    display: none;
+    position: relative;
+    width: 3.25rem;
+    height: 3.25rem;
+    padding: 0;
+    border: 1px solid rgba(80, 209, 255, 0.22);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text);
+    cursor: pointer;
+    transition: background 0.28s ease, border-color 0.28s ease, transform 0.28s ease;
+}
+
+.nav-toggle:hover,
+.nav-toggle:focus-visible {
+    background: rgba(80, 209, 255, 0.12);
+    border-color: rgba(80, 209, 255, 0.42);
+}
+
+.nav-toggle:focus-visible {
+    outline: 2px solid rgba(80, 209, 255, 0.35);
+    outline-offset: 3px;
+}
+
+.nav-toggle span {
+    position: absolute;
+    left: 50%;
+    display: block;
+    width: 1.35rem;
+    height: 2px;
+    background: currentColor;
+    border-radius: 999px;
+    transform: translateX(-50%);
+    transform-origin: center;
+    transition: transform 0.28s ease, opacity 0.2s ease, width 0.28s ease;
+}
+
+.nav-toggle span:nth-child(1) {
+    top: 1rem;
+}
+
+.nav-toggle span:nth-child(2) {
+    top: 1.52rem;
+}
+
+.nav-toggle span:nth-child(3) {
+    top: 2.04rem;
 }
 
 .site-nav a {
@@ -210,6 +272,14 @@ p {
 .site-nav a:focus {
     color: var(--text);
     background: rgba(80, 209, 255, 0.08);
+}
+
+#inicio,
+#sobre,
+#portfolio,
+#testimonios,
+#contacto {
+    scroll-margin-top: calc(var(--nav-height) + 1rem);
 }
 
 main {
@@ -486,8 +556,7 @@ footer p:last-child {
 }
 
 @media (max-width: 900px) {
-    .hero-actions,
-    .site-nav ul {
+    .hero-actions {
         flex-direction: column;
         align-items: center;
     }
@@ -500,16 +569,63 @@ footer p:last-child {
 @media (max-width: 768px) {
     :root {
         --font-size-base: 15px;
+        --nav-height: 88px;
         --spacing-large: 1.5rem;
         --spacing-xlarge: 2rem;
     }
 
-    main {
-        padding: var(--spacing-large) var(--spacing-medium) var(--spacing-xlarge);
+    .site-nav {
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding-top: 1.1rem;
+        padding-bottom: 1.1rem;
     }
 
-    .site-hero {
-        padding-top: 4rem;
+    .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+        flex-shrink: 0;
+    }
+
+    .site-nav ul {
+        display: none;
+        width: 100%;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+        border-top: 1px solid rgba(80, 209, 255, 0.12);
+    }
+
+    .site-nav.is-open ul {
+        display: flex;
+    }
+
+    .site-nav a {
+        display: block;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.03);
+    }
+
+    .site-nav.is-open .nav-toggle span:nth-child(1) {
+        transform: translateX(-50%) translateY(8px) rotate(45deg);
+    }
+
+    .site-nav.is-open .nav-toggle span:nth-child(2) {
+        opacity: 0;
+        transform: translateX(-50%) scaleX(0.6);
+    }
+
+    .site-nav.is-open .nav-toggle span:nth-child(3) {
+        transform: translateX(-50%) translateY(-8px) rotate(-45deg);
+    }
+
+    main {
+        padding: var(--spacing-large) var(--spacing-medium) var(--spacing-xlarge);
     }
 
     .hero-copy {
@@ -529,10 +645,6 @@ footer p:last-child {
 
     h2 {
         font-size: 1.5rem;
-    }
-
-    .site-nav ul {
-        gap: 0.75rem;
     }
 
     .section-panel {

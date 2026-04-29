@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio de arte digital con inspiración en estilo anime y estética contemporánea. Obras gráficas para proyectos visuales y diseño de personajes.">
+    <meta name="description"
+        content="Portfolio de arte digital con inspiración en estilo anime y estética contemporánea. Obras gráficas para proyectos visuales y diseño de personajes.">
     <meta name="language" content="Spanish">
     <meta name="author" content="Jean Carreras Diseños">
     <title>Jean Carreras Diseños | Portfolio de Arte Digital</title>
@@ -18,20 +20,17 @@
     }
     </script>
 </head>
+
 <body>
     <header class="site-hero" id="inicio">
-        <div class="hero-glow"></div>
-        <div class="hero-copy">
-            <p class="eyebrow">Arte digital inspirado en anime</p>
-            <h1>Diseño visual con energía joven y narrativa gráfica</h1>
-            <p class="hero-text">Portfolio de ilustración digital, diseño de personajes y composiciones visuales para proyectos que buscan un estilo distintivo y contemporáneo.</p>
-            <div class="hero-actions">
-                <a href="#portfolio" class="btn btn-primary">Ver Portfolio</a>
-                <a href="#contacto" class="btn btn-secondary">Contacto rápido</a>
-            </div>
-        </div>
         <nav class="site-nav">
-            <ul>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu"
+                aria-label="Abrir menú de navegación">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="site-menu">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
@@ -39,14 +38,27 @@
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
+        <div class="hero-glow"></div>
+        <div class="hero-copy">
+            <p class="eyebrow">Arte digital inspirado en anime</p>
+            <h1>Diseño visual con energía joven y narrativa gráfica</h1>
+            <p class="hero-text">Portfolio de ilustración digital, diseño de personajes y composiciones visuales para
+                proyectos que buscan un estilo distintivo y contemporáneo.</p>
+            <div class="hero-actions">
+                <a href="#portfolio" class="btn btn-primary">Ver Portfolio</a>
+                <a href="#contacto" class="btn btn-secondary">Contacto rápido</a>
+            </div>
+        </div>
     </header>
 
     <main>
         <section id="sobre" class="section-panel">
             <div class="section-intro">
                 <h2>Perfil creativo</h2>
-                <p>Portfolio que mezcla influencias japonesas con dirección de arte moderna. Proyectos visuales diseñados para destacar personajes, escenas y composiciones con impacto.</p>
-                <p>Especialización en ilustración digital, diseño de personajes y piezas conceptuales con paletas intensas y estilo definido.</p>
+                <p>Portfolio que mezcla influencias japonesas con dirección de arte moderna. Proyectos visuales
+                    diseñados para destacar personajes, escenas y composiciones con impacto.</p>
+                <p>Especialización en ilustración digital, diseño de personajes y piezas conceptuales con paletas
+                    intensas y estilo definido.</p>
             </div>
         </section>
 
@@ -54,11 +66,13 @@
             <h2>Portfolio destacado</h2>
             <article class="portfolio-item">
                 <figure>
-                    <img src="goku.jpg" alt="Ilustración digital estilo anime con personaje en transformación energética">
+                    <img src="goku.jpg"
+                        alt="Ilustración digital estilo anime con personaje en transformación energética">
                     <figcaption>Goku SSJ 4</figcaption>
                 </figure>
                 <div class="portfolio-copy">
-                    <p>Ilustración digital que resalta volumen, luz y detalle, con una estética anime contemporánea y energía dinámica.</p>
+                    <p>Ilustración digital que resalta volumen, luz y detalle, con una estética anime contemporánea y
+                        energía dinámica.</p>
                 </div>
             </article>
             <article class="portfolio-item">
@@ -67,7 +81,8 @@
                     <figcaption>Dark Magician Girl</figcaption>
                 </figure>
                 <div class="portfolio-copy">
-                    <p>Composición visual que equilibra elementos místicos y color vibrante para una pieza de estilo anime con presencia femenina.</p>
+                    <p>Composición visual que equilibra elementos místicos y color vibrante para una pieza de estilo
+                        anime con presencia femenina.</p>
                 </div>
             </article>
         </section>
@@ -76,13 +91,15 @@
             <h2>Reseñas</h2>
             <article class="testimonial">
                 <blockquote>
-                    <p>«Un trabajo con estilo claro y visualmente potente, ideal para proyectos que necesitan una voz moderna.»</p>
+                    <p>«Un trabajo con estilo claro y visualmente potente, ideal para proyectos que necesitan una voz
+                        moderna.»</p>
                 </blockquote>
                 <p class="testimonial-author">- Cliente satisfecho</p>
             </article>
             <article class="testimonial">
                 <blockquote>
-                    <p>«Las entregas fueron profesionales y el resultado mostró una gran sensibilidad por la estética anime.»</p>
+                    <p>«Las entregas fueron profesionales y el resultado mostró una gran sensibilidad por la estética
+                        anime.»</p>
                 </blockquote>
                 <p class="testimonial-author">- Cliente satisfecho</p>
             </article>
@@ -96,25 +113,30 @@
 
         <section id="contacto" class="section-panel section-contact">
             <h2>Contacto</h2>
-            <p>Interés en una pieza personalizada o colaboración visual. Envía los detalles del proyecto y recibirás una respuesta rápida.</p>
+            <p>Interés en una pieza personalizada o colaboración visual. Envía los detalles del proyecto y recibirás una
+                respuesta rápida.</p>
             <form method="POST" action="#contacto">
                 <fieldset>
                     <legend>Formulario de contacto</legend>
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
-                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required aria-required="true">
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required
+                            aria-required="true">
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="tu@correo.com" required aria-required="true">
+                        <input type="email" id="email" name="email" placeholder="tu@correo.com" required
+                            aria-required="true">
                     </div>
                     <div class="form-group">
                         <label for="asunto">Asunto</label>
-                        <input type="text" id="asunto" name="asunto" placeholder="Breve descripción del proyecto" required aria-required="true">
+                        <input type="text" id="asunto" name="asunto" placeholder="Breve descripción del proyecto"
+                            required aria-required="true">
                     </div>
                     <div class="form-group">
                         <label for="mensaje">Mensaje</label>
-                        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntame tu idea" required aria-required="true"></textarea>
+                        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntame tu idea" required
+                            aria-required="true"></textarea>
                     </div>
                     <button type="submit">Enviar mensaje</button>
                 </fieldset>
@@ -134,5 +156,38 @@
         <p>&copy; 2026 Jean Carreras Diseños</p>
         <p>Montevideo, Uruguay</p>
     </footer>
+    <script>
+        const nav = document.querySelector('.site-nav');
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.getElementById('site-menu');
+        const navLinks = navMenu.querySelectorAll('a');
+
+        const closeMenu = () => {
+            nav.classList.remove('is-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.setAttribute('aria-label', 'Abrir menú de navegación');
+        };
+
+        navToggle.addEventListener('click', () => {
+            const isOpen = nav.classList.toggle('is-open');
+            navToggle.setAttribute('aria-expanded', String(isOpen));
+            navToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+        });
+
+        navLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    closeMenu();
+                }
+            });
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                closeMenu();
+            }
+        });
+    </script>
 </body>
+
 </html>
