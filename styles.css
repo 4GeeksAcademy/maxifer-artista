@@ -15,12 +15,14 @@
     --shadow-sm: 0 10px 25px rgba(0, 0, 0, 0.18);
     --shadow-md: 0 18px 45px rgba(0, 0, 0, 0.2);
     --transition: all 0.28s ease;
-    --font-family-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-family-main: 'Segoe UI Variable', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-family-display: 'Trebuchet MS', 'Segoe UI', Arial, sans-serif;
     --font-size-base: 16px;
     --spacing-small: 0.65rem;
     --spacing-medium: 1.25rem;
     --spacing-large: 2rem;
     --spacing-xlarge: 3rem;
+    color-scheme: dark;
 }
 
 * {
@@ -39,6 +41,7 @@ body {
     font-size: var(--font-size-base);
     line-height: 1.7;
     color: var(--text);
+    text-rendering: optimizeLegibility;
     background: radial-gradient(circle at top left, rgba(80, 209, 255, 0.08), transparent 25%),
                 radial-gradient(circle at bottom right, rgba(155, 119, 255, 0.1), transparent 22%),
                 linear-gradient(180deg, #050b16 0%, #071226 45%, #081728 100%);
@@ -93,6 +96,8 @@ a.btn {
 
 h1, h2, h3 {
     margin-bottom: var(--spacing-medium);
+    font-family: var(--font-family-display);
+    font-weight: 700;
     letter-spacing: -0.5px;
     line-height: 1.08;
 }
@@ -120,6 +125,7 @@ p {
     align-items: center;
     gap: 0.65rem;
     margin-bottom: 1rem;
+    font-family: var(--font-family-display);
     color: var(--primary);
     font-size: 0.8rem;
     font-weight: 700;
@@ -143,7 +149,7 @@ p {
     overflow: hidden;
     min-height: 100vh;
     display: grid;
-    align-items: start;
+    align-items: center;
     padding:
         calc(var(--spacing-xlarge) * 1.2 + var(--hero-nav-offset, var(--nav-height)))
         var(--spacing-large)
@@ -183,7 +189,7 @@ p {
     max-width: 820px;
     margin: 0 auto;
     padding-top: 0;
-    transform: translateY(clamp(-7rem, -14vh, -4rem));
+    transform: translateY(clamp(-1.5rem, -3vh, -0.75rem));
 }
 
 .eyebrow {
@@ -191,6 +197,7 @@ p {
     align-items: center;
     gap: 0.5rem;
     margin-bottom: 1rem;
+    font-family: var(--font-family-display);
     color: var(--primary);
     font-weight: 700;
     text-transform: uppercase;
@@ -216,6 +223,7 @@ p {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    font-family: var(--font-family-display);
     border-radius: 999px;
     padding: 0.95rem 2rem;
     font-weight: 700;
@@ -315,6 +323,7 @@ p {
 }
 
 .site-nav a {
+    font-family: var(--font-family-display);
     color: var(--text-muted);
     font-weight: 600;
     padding: 0.5rem 0.75rem;
@@ -325,6 +334,11 @@ p {
 .site-nav a:focus {
     color: var(--text);
     background: rgba(80, 209, 255, 0.08);
+}
+
+.site-nav a[aria-current="page"] {
+    color: var(--text);
+    background: rgba(80, 209, 255, 0.12);
 }
 
 #inicio,
@@ -483,6 +497,12 @@ main:focus {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.5rem;
+    padding: 0;
+    list-style: none;
+}
+
+.portfolio-list li {
+    min-width: 0;
 }
 
 .portfolio-item {
@@ -572,12 +592,16 @@ main:focus {
 }
 
 .testimonial-author {
-    margin-top: 1.25rem;
     display: inline-block;
     color: var(--text-muted);
     font-size: 0.88rem;
+    font-style: normal;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+}
+
+.testimonial-meta {
+    margin-top: 1.25rem;
 }
 
 .section-contact {
@@ -619,6 +643,7 @@ fieldset {
 }
 
 legend {
+    font-family: var(--font-family-display);
     font-size: 1.15rem;
     color: var(--text);
     font-weight: 700;
@@ -639,6 +664,7 @@ legend {
 }
 
 label {
+    font-family: var(--font-family-display);
     font-size: 0.9rem;
     color: var(--text);
     text-transform: uppercase;
@@ -679,6 +705,7 @@ button[type="submit"] {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    font-family: var(--font-family-display);
     margin-top: 0.4rem;
     padding: 1rem 2rem;
     border: none;
@@ -713,7 +740,12 @@ button[type="submit"]:hover {
     font-size: 1.05rem;
 }
 
-.social-links ul {
+.social-note {
+    margin-bottom: 1rem;
+    color: var(--text-muted);
+}
+
+.social-links-list {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
@@ -721,7 +753,7 @@ button[type="submit"]:hover {
     gap: 1rem;
 }
 
-.social-links a {
+.social-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -734,15 +766,20 @@ button[type="submit"]:hover {
     border: 1px solid rgba(80, 209, 255, 0.18);
     transition: background 0.28s ease, transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
     font-size: 0.92rem;
+    font-family: var(--font-family-display);
     font-weight: 700;
     letter-spacing: 0.03em;
 }
 
-.social-links a:hover {
+.social-link.is-disabled {
+    opacity: 0.78;
+    cursor: default;
+}
+
+.social-link.is-disabled:hover {
     background: rgba(80, 209, 255, 0.12);
     border-color: rgba(80, 209, 255, 0.35);
     box-shadow: 0 16px 32px rgba(9, 26, 48, 0.32);
-    transform: translateY(-3px);
 }
 
 .social-icon {
@@ -762,14 +799,14 @@ button[type="submit"]:hover {
     height: 1rem;
 }
 
-footer {
+.site-footer {
     padding: 2rem 1.5rem;
     text-align: center;
     color: rgba(255, 255, 255, 0.75);
     font-size: 0.95rem;
 }
 
-footer p:last-child {
+.site-footer p:last-child {
     margin-top: 0.5rem;
     color: rgba(255, 255, 255, 0.55);
 }
@@ -940,7 +977,7 @@ footer p:last-child {
         padding: 0.9rem 1rem;
     }
 
-    .social-links ul {
+    .social-links-list {
         flex-direction: column;
     }
 
@@ -948,8 +985,31 @@ footer p:last-child {
         padding: 1.25rem;
     }
 
-    .social-links a {
+    .social-link {
         width: 100%;
         min-width: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .btn:hover,
+    .portfolio-item:hover,
+    .portfolio-item:hover img,
+    .social-link.is-disabled:hover,
+    button[type="submit"]:hover {
+        transform: none;
     }
 }
