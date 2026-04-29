@@ -1030,6 +1030,14 @@ button[type="submit"]:hover {
         padding-bottom: 1.1rem;
     }
 
+    .site-brand {
+        gap: 0;
+    }
+
+    .site-brand-name {
+        display: none;
+    }
+
     .nav-toggle {
         display: inline-flex;
         align-items: center;
