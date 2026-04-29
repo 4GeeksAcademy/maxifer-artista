@@ -157,21 +157,33 @@
         <p>Montevideo, Uruguay</p>
     </footer>
     <script>
+        const hero = document.querySelector('.site-hero');
         const nav = document.querySelector('.site-nav');
         const navToggle = document.querySelector('.nav-toggle');
         const navMenu = document.getElementById('site-menu');
         const navLinks = navMenu.querySelectorAll('a');
 
+        const syncHeroOffset = () => {
+            if (window.innerWidth <= 768) {
+                hero.style.setProperty('--hero-nav-offset', `${nav.offsetHeight}px`);
+                return;
+            }
+
+            hero.style.removeProperty('--hero-nav-offset');
+        };
+
         const closeMenu = () => {
             nav.classList.remove('is-open');
             navToggle.setAttribute('aria-expanded', 'false');
             navToggle.setAttribute('aria-label', 'Abrir menú de navegación');
+            syncHeroOffset();
         };
 
         navToggle.addEventListener('click', () => {
             const isOpen = nav.classList.toggle('is-open');
             navToggle.setAttribute('aria-expanded', String(isOpen));
             navToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+            syncHeroOffset();
         });
 
         navLinks.forEach((link) => {
@@ -185,8 +197,13 @@
         window.addEventListener('resize', () => {
             if (window.innerWidth > 768) {
                 closeMenu();
+                return;
             }
+
+            syncHeroOffset();
         });
+
+        syncHeroOffset();
     </script>
 </body>
 
