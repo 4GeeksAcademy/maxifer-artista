@@ -1,11 +1,12 @@
 ﻿<!DOCTYPE html>
-<html lang="es">
+<html lang="es-UY">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="Portfolio de arte digital con inspiración en estilo anime y estética contemporánea. Obras gráficas para proyectos visuales y diseño de personajes.">
+    <meta name="robots" content="index, follow">
     <meta name="language" content="Spanish">
     <meta name="author" content="Jean Carreras Diseños">
     <title>Jean Carreras Diseños | Portfolio de Arte Digital</title>
@@ -13,17 +14,103 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Jean Carreras Diseños",
-        "jobTitle": "Artista Gráfico / Ilustrador Digital",
-        "description": "Portfolio de arte digital con inspiración en animación japonesa y estética moderna."
+        "@graph": [
+            {
+                "@type": "CollectionPage",
+                "@id": "#pagina-portfolio",
+                "name": "Jean Carreras Diseños | Portfolio de Arte Digital",
+                "description": "Portfolio de arte digital con inspiración en estilo anime y estética contemporánea. Obras gráficas para proyectos visuales y diseño de personajes.",
+                "inLanguage": "es-UY",
+                "about": {
+                    "@id": "#artista"
+                },
+                "mainEntity": {
+                    "@id": "#servicio-creativo"
+                },
+                "hasPart": [
+                    {
+                        "@id": "#obra-goku"
+                    },
+                    {
+                        "@id": "#obra-dark-magician"
+                    }
+                ]
+            },
+            {
+                "@type": "Person",
+                "@id": "#artista",
+                "name": "Jean Carreras",
+                "alternateName": "Jean Carreras Diseños",
+                "jobTitle": "Ilustrador digital",
+                "description": "Artista digital de Montevideo especializado en ilustraciones estilo anime para marcas, contenido y proyectos visuales.",
+                "knowsAbout": [
+                    "Ilustración digital",
+                    "Diseño de personajes",
+                    "Arte estilo anime",
+                    "Branding visual"
+                ],
+                "homeLocation": {
+                    "@type": "Place",
+                    "name": "Montevideo, Uruguay"
+                }
+            },
+            {
+                "@type": "ProfessionalService",
+                "@id": "#servicio-creativo",
+                "name": "Jean Carreras Diseños",
+                "description": "Servicio de ilustración digital y diseño de personajes con estética anime contemporánea para proyectos de branding, redes y contenido creativo.",
+                "serviceType": [
+                    "Ilustración digital",
+                    "Diseño de personajes",
+                    "Arte para contenido visual"
+                ],
+                "areaServed": {
+                    "@type": "Country",
+                    "name": "Uruguay"
+                },
+                "founder": {
+                    "@id": "#artista"
+                }
+            },
+            {
+                "@type": "CreativeWork",
+                "@id": "#obra-goku",
+                "name": "Goku SSJ 4",
+                "description": "Ilustración enfocada en iluminación, volumen y energía visual, con un estilo anime moderno y dinámico.",
+                "genre": [
+                    "Anime",
+                    "Fan art",
+                    "Ilustración digital"
+                ],
+                "creator": {
+                    "@id": "#artista"
+                },
+                "image": "goku.jpg"
+            },
+            {
+                "@type": "CreativeWork",
+                "@id": "#obra-dark-magician",
+                "name": "Dark Magician Girl",
+                "description": "Composición con colores vibrantes y personalidad fuerte, pensada para destacar en contenido digital.",
+                "genre": [
+                    "Anime",
+                    "Ilustración digital",
+                    "Diseño de personajes"
+                ],
+                "creator": {
+                    "@id": "#artista"
+                },
+                "image": "dark-magician.jpg"
+            }
+        ]
     }
     </script>
 </head>
 
 <body>
-    <header class="site-hero" id="inicio">
-        <nav class="site-nav">
+    <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+    <header class="site-hero" id="inicio" aria-labelledby="hero-title">
+        <nav class="site-nav" aria-label="Navegación principal">
             <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu"
                 aria-label="Abrir menú de navegación">
                 <span></span>
@@ -41,7 +128,7 @@
         <div class="hero-glow"></div>
         <div class="hero-copy">
             <p class="eyebrow">Ilustración digital estilo anime</p>
-            <h1>Ilustraciones que hacen destacar tu proyecto</h1>
+            <h1 id="hero-title">Ilustraciones que hacen destacar tu proyecto</h1>
             <p class="hero-text">Soy Jean Carreras, artista digital de Montevideo. Creo ilustraciones estilo anime
                 para marcas, contenido y proyectos que buscan una estética fuerte, moderna y con personalidad.</p>
             <div class="hero-actions">
@@ -51,11 +138,11 @@
         </div>
     </header>
 
-    <main>
-        <section id="sobre" class="section-panel section-about">
+    <main id="contenido-principal" tabindex="-1">
+        <section id="sobre" class="section-panel section-about" aria-labelledby="sobre-titulo">
             <div class="section-intro about-copy">
                 <p class="section-kicker">Sobre mí</p>
-                <h2>Ilustración con carácter, ritmo y una estética reconocible</h2>
+                <h2 id="sobre-titulo">Ilustración con carácter, ritmo y una estética reconocible</h2>
                 <p>Soy ilustrador digital especializado en estilo anime. Trabajo con clientes y proyectos que buscan
                     una estética visual impactante para redes, branding o contenido creativo.</p>
                 <p>Mi enfoque está en crear personajes, escenas e ilustraciones que transmitan energía, identidad y
@@ -68,47 +155,52 @@
             </div>
         </section>
 
-        <section id="portfolio" class="section-panel portfolio-grid">
+        <section id="portfolio" class="section-panel portfolio-grid" aria-labelledby="portfolio-titulo"
+            aria-describedby="portfolio-descripcion">
             <div class="section-heading">
                 <p class="section-kicker">Portfolio</p>
-                <h2>Algunos de mis trabajos</h2>
-                <p>Selección de ilustraciones pensadas para destacar por composición, color y presencia visual.</p>
+                <h2 id="portfolio-titulo">Algunos de mis trabajos</h2>
+                <p id="portfolio-descripcion">Selección de ilustraciones pensadas para destacar por composición, color y presencia visual.</p>
             </div>
-            <article class="portfolio-item">
-                <figure>
-                    <img src="goku.jpg"
-                        alt="Ilustración digital estilo anime con personaje en transformación energética">
-                    <figcaption>Goku SSJ 4</figcaption>
-                </figure>
-                <div class="portfolio-copy">
-                    <p>Ilustración enfocada en iluminación, volumen y energía visual,
-                        con un estilo anime moderno y dinámico.</p>
-                </div>
-            </article>
-            <article class="portfolio-item">
-                <figure>
-                    <img src="dark-magician.jpg" alt="Ilustración digital estilo anime con personaje mágico femenino">
-                    <figcaption>Dark Magician Girl</figcaption>
-                </figure>
-                <div class="portfolio-copy">
-                    <p>Composición con colores vibrantes y personalidad fuerte,
-                        pensada para destacar en contenido digital.</p>
-                </div>
-            </article>
+            <div class="portfolio-list" aria-label="Listado de ilustraciones destacadas">
+                <article class="portfolio-item" aria-labelledby="obra-goku-titulo" aria-describedby="obra-goku-descripcion">
+                    <figure>
+                        <img src="goku.jpg" loading="lazy"
+                            alt="Ilustración de Goku en fase SSJ 4, rodeado de energía, con iluminación intensa y pose de combate">
+                        <figcaption id="obra-goku-titulo">Goku SSJ 4</figcaption>
+                    </figure>
+                    <div class="portfolio-copy">
+                        <p id="obra-goku-descripcion">Ilustración enfocada en iluminación, volumen y energía visual,
+                            con un estilo anime moderno y dinámico.</p>
+                    </div>
+                </article>
+                <article class="portfolio-item" aria-labelledby="obra-dark-titulo" aria-describedby="obra-dark-descripcion">
+                    <figure>
+                        <img src="dark-magician.jpg" loading="lazy"
+                            alt="Ilustración de Dark Magician Girl con vestuario mágico, paleta vibrante y pose segura">
+                        <figcaption id="obra-dark-titulo">Dark Magician Girl</figcaption>
+                    </figure>
+                    <div class="portfolio-copy">
+                        <p id="obra-dark-descripcion">Composición con colores vibrantes y personalidad fuerte,
+                            pensada para destacar en contenido digital.</p>
+                    </div>
+                </article>
+            </div>
         </section>
 
-        <section id="testimonios" class="section-panel testimonial-grid">
+        <section id="testimonios" class="section-panel testimonial-grid" aria-labelledby="testimonios-titulo"
+            aria-describedby="testimonios-descripcion">
             <div class="section-heading">
                 <p class="section-kicker">Testimonios</p>
-                <h2>Lo que dicen quienes trabajaron conmigo</h2>
-                <p>Comentarios de clientes y colaboradores sobre el proceso creativo, la comunicación y el resultado final.</p>
+                <h2 id="testimonios-titulo">Lo que dicen quienes trabajaron conmigo</h2>
+                <p id="testimonios-descripcion">Comentarios de clientes y colaboradores sobre el proceso creativo, la comunicación y el resultado final.</p>
             </div>
             <article class="testimonial">
                 <blockquote>
                     <p>«Trabajar con Jean fue mucho más simple de lo que esperaba. Entendió la idea enseguida y logró
                         una ilustración con mucha fuerza, justo el estilo que necesitábamos para nuestra campaña.»</p>
                 </blockquote>
-                <p class="testimonial-author">- Lucía M.</p>
+                <p class="testimonial-author">Lucía M.</p>
             </article>
             <article class="testimonial">
                 <blockquote>
@@ -116,61 +208,90 @@
                         perfecto. Hubo buena comunicación en todo momento y el resultado final superó nuestras
                         expectativas.»</p>
                 </blockquote>
-                <p class="testimonial-author">- Martín S.</p>
+                <p class="testimonial-author">Martín S.</p>
             </article>
             <article class="testimonial">
                 <blockquote>
                     <p>«Lo que más valoré fue que no entregó algo genérico. Cada detalle tenía personalidad y se notó
                         que hubo criterio artístico detrás. La ilustración funcionó excelente en redes.»</p>
                 </blockquote>
-                <p class="testimonial-author">- Camila R.</p>
+                <p class="testimonial-author">Camila R.</p>
             </article>
         </section>
 
-        <section id="contacto" class="section-panel section-contact">
+        <section id="contacto" class="section-panel section-contact" aria-labelledby="contacto-titulo"
+            aria-describedby="contacto-descripcion">
             <div class="section-heading">
                 <p class="section-kicker">Contacto</p>
-                <h2>¿Tenés una idea en mente?</h2>
-                <p>Contame tu proyecto y vemos cómo llevarlo a una ilustración única.</p>
+                <h2 id="contacto-titulo">¿Tenés una idea en mente?</h2>
+                <p id="contacto-descripcion">Contame tu proyecto y vemos cómo llevarlo a una ilustración única.</p>
             </div>
-            <form method="POST" action="#contacto">
+            <form method="POST" action="#contacto" aria-describedby="contacto-ayuda">
                 <fieldset>
                     <legend>Formulario de contacto</legend>
+                    <p id="contacto-ayuda" class="form-help">Todos los campos son obligatorios.</p>
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
                         <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required
-                            aria-required="true">
+                            aria-required="true" autocomplete="name">
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" id="email" name="email" placeholder="tu@correo.com" required
-                            aria-required="true">
+                            aria-required="true" autocomplete="email" inputmode="email">
                     </div>
                     <div class="form-group">
                         <label for="asunto">Asunto</label>
                         <input type="text" id="asunto" name="asunto" placeholder="Breve descripción del proyecto"
-                            required aria-required="true">
+                            required aria-required="true" autocomplete="off">
                     </div>
                     <div class="form-group">
                         <label for="mensaje">Mensaje</label>
                         <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntame tu idea" required
                             aria-required="true"></textarea>
                     </div>
-                    <button type="submit">Enviar mensaje</button>
+                    <button type="submit" aria-label="Enviar formulario de contacto">Enviar mensaje</button>
                 </fieldset>
             </form>
-            <div class="social-links">
-                <h3>Redes sociales</h3>
+            <div class="social-links" aria-labelledby="redes-titulo">
+                <h3 id="redes-titulo">Redes sociales</h3>
                 <ul>
-                    <li><a href="#" aria-label="Enlace de Instagram de placeholder">Instagram (placeholder)</a></li>
-                    <li><a href="#" aria-label="Enlace de Twitter de placeholder">Twitter (placeholder)</a></li>
-                    <li><a href="#" aria-label="Enlace de LinkedIn de placeholder">LinkedIn (placeholder)</a></li>
+                    <li>
+                        <a href="#" aria-label="Instagram, enlace pendiente de definir">
+                            <span class="social-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" role="img" focusable="false">
+                                    <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5a4.25 4.25 0 0 0 4.25 4.25h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5a4.25 4.25 0 0 0-4.25-4.25h-8.5Zm8.88 2.12a1.13 1.13 0 1 1 0 2.26 1.13 1.13 0 0 1 0-2.26ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.5A3.5 3.5 0 1 0 12 15.5 3.5 3.5 0 0 0 12 8.5Z" fill="currentColor" />
+                                </svg>
+                            </span>
+                            <span>Instagram</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" aria-label="X, enlace pendiente de definir">
+                            <span class="social-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" role="img" focusable="false">
+                                    <path d="M18.9 2H22l-6.77 7.74L23.2 22h-6.25l-4.9-7.46L5.52 22H2.4l7.24-8.27L1.6 2h6.4l4.43 6.77L18.9 2Zm-1.1 18.1h1.73L7.06 3.8H5.2Z" fill="currentColor" />
+                                </svg>
+                            </span>
+                            <span>X</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" aria-label="LinkedIn, enlace pendiente de definir">
+                            <span class="social-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" role="img" focusable="false">
+                                    <path d="M6.94 8.5A1.56 1.56 0 1 1 6.94 5.38 1.56 1.56 0 0 1 6.94 8.5ZM5.5 9.75h2.88V18.5H5.5V9.75Zm4.69 0h2.76V11h.04c.38-.73 1.32-1.5 2.72-1.5 2.9 0 3.44 1.9 3.44 4.38v4.62h-2.88v-4.1c0-.98-.02-2.24-1.36-2.24-1.36 0-1.57 1.06-1.57 2.17v4.17h-2.88V9.75Z" fill="currentColor" />
+                                </svg>
+                            </span>
+                            <span>LinkedIn</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </section>
     </main>
 
-    <footer>
+    <footer aria-label="Información del sitio">
         <p>&copy; 2026 Jean Carreras Diseños</p>
         <p>Montevideo, Uruguay</p>
     </footer>
@@ -180,6 +301,7 @@
         const navToggle = document.querySelector('.nav-toggle');
         const navMenu = document.getElementById('site-menu');
         const navLinks = navMenu.querySelectorAll('a');
+        const mainContent = document.getElementById('contenido-principal');
 
         const syncHeroOffset = () => {
             if (window.innerWidth <= 768) {
@@ -190,10 +312,17 @@
             hero.style.removeProperty('--hero-nav-offset');
         };
 
+        const syncMenuAccessibility = (isOpen = nav.classList.contains('is-open')) => {
+            const isMobile = window.innerWidth <= 768;
+            navMenu.hidden = isMobile && !isOpen;
+            navMenu.setAttribute('aria-hidden', String(isMobile && !isOpen));
+        };
+
         const closeMenu = () => {
             nav.classList.remove('is-open');
             navToggle.setAttribute('aria-expanded', 'false');
             navToggle.setAttribute('aria-label', 'Abrir menú de navegación');
+            syncMenuAccessibility(false);
             syncHeroOffset();
         };
 
@@ -201,6 +330,7 @@
             const isOpen = nav.classList.toggle('is-open');
             navToggle.setAttribute('aria-expanded', String(isOpen));
             navToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+            syncMenuAccessibility(isOpen);
             syncHeroOffset();
         });
 
@@ -212,15 +342,29 @@
             });
         });
 
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && nav.classList.contains('is-open')) {
+                closeMenu();
+                navToggle.focus();
+            }
+        });
+
         window.addEventListener('resize', () => {
             if (window.innerWidth > 768) {
                 closeMenu();
+                syncMenuAccessibility(true);
                 return;
             }
 
+            syncMenuAccessibility(nav.classList.contains('is-open'));
             syncHeroOffset();
         });
 
+        document.querySelector('.skip-link').addEventListener('click', () => {
+            window.setTimeout(() => mainContent.focus(), 0);
+        });
+
+        syncMenuAccessibility();
         syncHeroOffset();
     </script>
 </body>
