@@ -917,26 +917,6 @@ button[type="submit"]:hover {
     color: rgba(255, 255, 255, 0.55);
 }
 
-.footer-cta {
-    display: inline-flex;
-    margin-top: 1rem;
-    padding: 0.8rem 1.2rem;
-    border-radius: 999px;
-    border: 1px solid rgba(111, 211, 255, 0.2);
-    background: rgba(111, 211, 255, 0.08);
-    color: var(--text);
-    font-family: var(--font-family-display);
-    font-weight: 700;
-    letter-spacing: 0.04em;
-}
-
-.footer-cta:hover,
-.footer-cta:focus {
-    color: var(--text);
-    background: rgba(111, 211, 255, 0.14);
-    border-color: rgba(111, 211, 255, 0.32);
-}
-
 @media (max-width: 900px) {
     .hero-actions {
         flex-direction: column;
