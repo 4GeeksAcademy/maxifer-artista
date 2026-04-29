@@ -282,17 +282,24 @@ p {
     top: 0;
     left: 0;
     width: 100%;
+    padding: 0 var(--spacing-large);
     min-height: var(--nav-height);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
-    padding: 1rem var(--spacing-large);
     z-index: 10;
     background: rgba(7, 19, 31, 0.88);
     backdrop-filter: blur(14px);
     border-bottom: 1px solid rgba(111, 211, 255, 0.12);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+}
+
+.site-nav-inner {
+    max-width: 1120px;
+    min-height: var(--nav-height);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1rem 0;
 }
 
 .site-brand {
@@ -948,6 +955,10 @@ button[type="submit"]:hover {
     }
 
     .site-nav {
+        padding-inline: var(--spacing-large);
+    }
+
+    .site-nav-inner {
         align-items: flex-start;
         justify-content: space-between;
         flex-wrap: wrap;
