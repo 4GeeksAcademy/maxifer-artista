@@ -295,6 +295,7 @@ p {
     max-width: 1120px;
     min-height: var(--nav-height);
     margin: 0 auto;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -347,6 +348,10 @@ p {
     justify-content: flex-end;
     list-style: none;
     margin-left: auto;
+}
+
+.menu-backdrop {
+    display: none;
 }
 
 .nav-toggle {
@@ -1043,21 +1048,42 @@ button[type="submit"]:hover {
         align-items: center;
         justify-content: center;
         flex-shrink: 0;
+        order: 2;
+        z-index: 4;
     }
 
     .site-nav ul {
         display: none;
         width: 100%;
+        order: 3;
+        position: relative;
+        z-index: 3;
         margin-top: 1rem;
         padding-top: 1rem;
         flex-direction: column;
         align-items: stretch;
         gap: 0.75rem;
         border-top: 1px solid rgba(111, 211, 255, 0.12);
+        background: rgba(7, 19, 31, 0.98);
+        border-radius: 16px;
+        padding-inline: 0.4rem;
+        padding-bottom: 0.4rem;
     }
 
-    .site-nav.is-open ul {
+    #site-menu:target {
         display: flex;
+    }
+
+    .menu-backdrop {
+        display: none;
+    }
+
+    #site-menu:target ~ .menu-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(3, 10, 18, 0.55);
+        z-index: 2;
     }
 
     .site-nav a {
@@ -1066,16 +1092,16 @@ button[type="submit"]:hover {
         background: rgba(255, 255, 255, 0.03);
     }
 
-    .site-nav.is-open .nav-toggle span:nth-child(1) {
+    #site-menu:target ~ .nav-toggle span:nth-child(1) {
         transform: translateX(-50%) translateY(8px) rotate(45deg);
     }
 
-    .site-nav.is-open .nav-toggle span:nth-child(2) {
+    #site-menu:target ~ .nav-toggle span:nth-child(2) {
         opacity: 0;
         transform: translateX(-50%) scaleX(0.6);
     }
 
-    .site-nav.is-open .nav-toggle span:nth-child(3) {
+    #site-menu:target ~ .nav-toggle span:nth-child(3) {
         transform: translateX(-50%) translateY(-8px) rotate(-45deg);
     }
 
