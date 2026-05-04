@@ -157,7 +157,7 @@
                     <span class="site-brand-name">Jean Carreras</span>
                 </a>
                 <ul id="site-menu">
-                    <li><a href="#inicio" aria-current="page">Inicio</a></li>
+                    <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#sobre">Sobre mí</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#testimonios">Testimonios</a></li>
@@ -214,7 +214,7 @@
             </div>
             <ul id="portfolio-listado" class="portfolio-list" aria-label="Listado de ilustraciones destacadas">
                 <li>
-                <article id="obra-goku" class="portfolio-item" aria-labelledby="obra-goku-titulo" aria-describedby="obra-goku-descripcion">
+                <article id="obra-goku" class="portfolio-item" tabindex="0" aria-labelledby="obra-goku-titulo" aria-describedby="obra-goku-descripcion">
                     <figure>
                         <img src="goku.jpg" loading="lazy"
                             alt="Ilustración de Goku en fase SSJ 4, rodeado de energía, con iluminación intensa y pose de combate">
@@ -230,7 +230,7 @@
                 </div>
                 </li>
                 <li>
-                <article id="obra-dark-magician" class="portfolio-item" aria-labelledby="obra-dark-titulo" aria-describedby="obra-dark-descripcion">
+                <article id="obra-dark-magician" class="portfolio-item" tabindex="0" aria-labelledby="obra-dark-titulo" aria-describedby="obra-dark-descripcion">
                     <figure>
                         <img src="dark-magician.jpg" loading="lazy"
                             alt="Ilustración de Dark Magician Girl con vestuario mágico, paleta vibrante y pose segura">
@@ -370,127 +370,6 @@
         <p>&copy; 2026 Jean Carreras Diseños</p>
         <p>Montevideo, Uruguay</p>
     </footer>
-    <script>
-        const hero = document.querySelector('.site-hero');
-        const navMenu = document.getElementById('site-menu');
-        const navLinks = navMenu.querySelectorAll('a');
-        const mainContent = document.getElementById('contenido-principal');
-        const portfolioCards = document.querySelectorAll('.portfolio-list li');
-        const sections = ['inicio', 'sobre', 'portfolio', 'testimonios', 'contacto']
-            .map((id) => document.getElementById(id))
-            .filter(Boolean);
-
-        const setActiveNavLink = (sectionId) => {
-            navLinks.forEach((link) => {
-                const isActive = link.getAttribute('href') === `#${sectionId}`;
-                if (isActive) {
-                    link.setAttribute('aria-current', 'page');
-                } else {
-                    link.removeAttribute('aria-current');
-                }
-            });
-        };
-
-        const syncHeroOffset = () => {
-            if (window.innerWidth <= 768) {
-                const navHeight = document.querySelector('.site-nav')?.offsetHeight ?? 0;
-                hero.style.setProperty('--hero-nav-offset', `${navHeight}px`);
-                return;
-            }
-
-            hero.style.removeProperty('--hero-nav-offset');
-        };
-
-        const isTouchPortfolioMode = () =>
-            window.matchMedia('(hover: none), (pointer: coarse), (max-width: 899px)').matches;
-
-        const closePortfolioPreviews = () => {
-            portfolioCards.forEach((card) => card.classList.remove('is-preview-open'));
-        };
-
-        portfolioCards.forEach((card) => {
-            card.addEventListener('click', (event) => {
-                if (!isTouchPortfolioMode()) {
-                    return;
-                }
-
-                const shouldOpen = !card.classList.contains('is-preview-open');
-                closePortfolioPreviews();
-
-                if (shouldOpen) {
-                    card.classList.add('is-preview-open');
-                }
-
-                event.stopPropagation();
-            });
-        });
-
-        navLinks.forEach((link) => {
-            link.addEventListener('click', () => {
-                const targetId = link.getAttribute('href')?.replace('#', '');
-                if (targetId) {
-                    setActiveNavLink(targetId);
-                }
-            });
-        });
-
-        if ('IntersectionObserver' in window && sections.length) {
-            const visibleSections = new Map();
-            const observer = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            visibleSections.set(entry.target.id, entry.intersectionRatio);
-                        } else {
-                            visibleSections.delete(entry.target.id);
-                        }
-                    });
-
-                    const activeSection = [...visibleSections.entries()]
-                        .sort((a, b) => b[1] - a[1])[0]?.[0];
-
-                    if (activeSection) {
-                        setActiveNavLink(activeSection);
-                    }
-                },
-                {
-                    rootMargin: '-30% 0px -45% 0px',
-                    threshold: [0.2, 0.35, 0.5, 0.7]
-                }
-            );
-
-            sections.forEach((section) => observer.observe(section));
-        }
-
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape') {
-                closePortfolioPreviews();
-            }
-        });
-
-        document.addEventListener('click', (event) => {
-            if (event.target.closest('.portfolio-list li')) {
-                return;
-            }
-
-            closePortfolioPreviews();
-        });
-
-        window.addEventListener('resize', () => {
-            if (!isTouchPortfolioMode()) {
-                closePortfolioPreviews();
-            }
-
-            syncHeroOffset();
-        });
-
-        document.querySelector('.skip-link').addEventListener('click', () => {
-            window.setTimeout(() => mainContent.focus(), 0);
-        });
-
-        syncHeroOffset();
-        setActiveNavLink('inicio');
-    </script>
 </body>
 
 </html>
